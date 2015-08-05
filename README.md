@@ -1,0 +1,2 @@
+# DualSonar_cm
+cm超音波センサを2個つかい両方の値をmasterにi2cで送るslaveプログラムである
