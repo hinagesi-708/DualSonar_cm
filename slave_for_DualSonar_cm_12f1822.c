@@ -1,7 +1,7 @@
 
 /* 
  * File:   slave_for_DualSonar_cm_12f1822.c
- * Author: -----
+ * Author: kayoko
  *
  * Created on 2015/08/05, 09:00
  */
@@ -14,7 +14,7 @@
  *  use_port                                *
  *                __________                *
  *          Vdd---|1  ●  8|---Vss         *
- * (RA5)mmSonar---|2       7|---cmSonar(RA0)*
+ *    (RA5)cm_2---|2       7|---cm_1(RA0)   *
  *      (RA4)  ---|3       6|---SCL(RA1)    *
  *      (RA3)  ---|4       5|---SDA(RA2)    *
  *                ==========                *
@@ -56,12 +56,14 @@ int main(void) {
         cm_1 = (cm_1 - 1.644394)/1.42615; 
         cm_1 = (cm_1 - 0.2)/1.021886;
         cm_1 = (cm_1 + 6.2)/0.999543;
-        cm_1 = (cm_1 -0.6)/1.004514;
+        cm_1 = (cm_1 - 0.6)/1.004514;
+        cm_1 = (cm_1 - 5.394668)/1.339007;
         
         cm_2 = (cm_2 - 1.644394)/1.42615; 
         cm_2 = (cm_2 - 0.2)/1.021886;
         cm_2 = (cm_2 + 6.2)/0.999543;
         cm_2 = (cm_2 -0.6)/1.004514;
+        cm_2 = (cm_2 - 5.394668)/1.339007;
         
         send_data[0] = cm_1 % 0x100;     //dat1 = (char)data;
         send_data[1] = cm_1 / 0x100;     //dat2 = (char)data >> 8;
@@ -100,7 +102,7 @@ int Pls_cm_1() {
     return leng_cm;
 }
 int PulseIn_cm_1(){
-    long time_cm = 0;
+    int time_cm = 0;
     while(RA0 == 1);
     while(RA0 == 0);
     while(RA0 == 1){
@@ -128,7 +130,7 @@ int Pls_cm_2() {
     return leng_cm;
 }
 int PulseIn_cm_2(){
-    long time_cm = 0;
+    int time_cm = 0;
     while(RA5 == 1);
     while(RA5 == 0);
     while(RA5 == 1){
