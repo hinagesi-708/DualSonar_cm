@@ -3,6 +3,7 @@
 
 #define I2C_ADDR_DEV1    0x50
 
+
 signed char reseaved_data[8] = {0};
 unsigned char send_data[8] = {0};
 
