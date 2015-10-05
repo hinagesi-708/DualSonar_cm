@@ -116,7 +116,7 @@ int main(void) {
                 }
                 count_time = count_time / 6.169463087248322;
                 if(count_time > 4000) count_time = 4000;
-                if(count_time < 0) count_time = 0;
+                if(count_time < 20) count_time = 0;
 //                send_data[2] = count_time % 0x100;
 //                send_data[3] = count_time / 0x100;
                 average_right[i] = count_time;
