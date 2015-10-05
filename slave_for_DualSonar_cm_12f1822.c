@@ -80,10 +80,6 @@ int main(void) {
                     count_time += TMR1;
                 }
                 count_time = count_time / 6.169463087248322;
-                if(count_time > 4000) count_time = 4000;
-                if(count_time < 20) count_time = 0;
-//                send_data[0] = count_time % 0x100;
-//                send_data[1] = count_time / 0x100;
                 average_left[i] = count_time;
                 __delay_ms(1);
             }
@@ -115,10 +111,6 @@ int main(void) {
                     count_time += TMR1;
                 }
                 count_time = count_time / 6.169463087248322;
-                if(count_time > 4000) count_time = 4000;
-                if(count_time < 20) count_time = 0;
-//                send_data[2] = count_time % 0x100;
-//                send_data[3] = count_time / 0x100;
                 average_right[i] = count_time;
                 __delay_ms(1);
             }
@@ -129,6 +121,11 @@ int main(void) {
         }
         average_ans_left  = average_ans_left  / 5;
         average_ans_right = average_ans_right / 5;
+        
+        if(average_ans_left > 4000)     average_ans_left = 4000;
+        else if(average_ans_left < 20)  average_ans_left = 0;
+        if(average_ans_right > 4000)    average_ans_right = 4000;
+        else if(average_ans_right < 20) average_ans_right = 0;
         
         send_data[0] = average_ans_left  % 0x100;
         send_data[1] = average_ans_left  / 0x100;
