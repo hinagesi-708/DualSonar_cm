@@ -75,6 +75,7 @@
                  count_time += TMR1;
              }
              count_time = count_time / 6.169463087248322;
+             count_time = count_time * 1.061022 - 10.3239;
             if(count_time > 4000) count_time = 4000;
             if(count_time < 20) count_time = 0;
              send_data[0] = count_time % 0x100;
@@ -109,6 +110,7 @@
                  count_time += TMR1;
              }
              count_time = count_time / 6.169463087248322;
+             count_time = count_time * 1.071113 - 0.95193;
             if(count_time > 4000) count_time = 4000;
              if(count_time < 20) count_time = 0;
              send_data[2] = count_time % 0x100;
