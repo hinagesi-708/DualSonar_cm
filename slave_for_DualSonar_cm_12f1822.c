@@ -1,5 +1,6 @@
 /* 
   * File:   slave_for_DualSonar_cm_rev_12f1822.c
+  * A-team: DualSonar_cm
   * Author: kayoko
   *
   * Created on 2015/09/30, 17:37
